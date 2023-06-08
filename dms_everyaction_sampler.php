@@ -16,7 +16,7 @@ namespace DMS_EA_Sampler;
  * ************************************************************************** */
 
 if (!defined('ABSPATH')) {
-    exit;
+  exit;
 }
 
 define('DMS_EA_PLUGIN_PATH', plugin_dir_path(__FILE__));
@@ -34,6 +34,8 @@ define('DMS_EA_VERSION', '1.0');
 include DMS_EA_PLUGIN_PATH . '/includes/init.php';
 
 include DMS_EA_PLUGIN_PATH . '/vendor/acf.php';
+
+require_once DMS_EA_PLUGIN_PATH . '/vendor/autoload.php';
 
 /*  AJAX HOOKS */
 
