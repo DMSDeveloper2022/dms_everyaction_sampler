@@ -2,12 +2,17 @@
 
 namespace DMS_EA_Sampler\Includes;
 
+use DMS_EA_Sampler\Includes\Admin\Admin as Admin;
+use DMS_EA_Sampler\Includes\Classes\FrontEnd as FrontEnd;
+
 if (!defined('ABSPATH')) {
     exit;
 }
 
 class Init
 {
+    private static $instance = null;
+
     public function __construct()
     {
         $this->load_dependencies();
@@ -17,8 +22,9 @@ class Init
 
     private function load_dependencies()
     {
-        require_once DMS_EA_PLUGIN_PATH . 'includes/class-admin.php';
-        require_once DMS_EA_PLUGIN_PATH . 'includes/class-front-end.php';
+
+        include_once DMS_EA_PLUGIN_PATH . 'includes/admin/dependencies.php';
+        include_once DMS_EA_PLUGIN_PATH . 'includes/classes/dependencies.php';
     }
 
     private function define_admin_hooks()
@@ -34,4 +40,15 @@ class Init
         add_action('wp_enqueue_scripts', array($plugin_public, 'enqueue_styles'));
         add_action('wp_enqueue_scripts', array($plugin_public, 'enqueue_scripts'));
     }
+    public static function get_instance()
+    {
+
+        if (null == self::$instance) {
+
+            self::$instance = new self;
+        }
+
+        return self::$instance;
+    }
 }
+namespace\Init::get_instance();

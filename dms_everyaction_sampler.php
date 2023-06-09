@@ -31,11 +31,9 @@ define('DMS_EA_TEXT_DOMAIN', 'dmseasampler');
 
 define('DMS_EA_VERSION', '1.0');
 
+define('DMS_EA_PREFIX', 'pj_ea_');
+
 include DMS_EA_PLUGIN_PATH . '/includes/init.php';
-
-include DMS_EA_PLUGIN_PATH . '/vendor/acf.php';
-
-require_once DMS_EA_PLUGIN_PATH . '/vendor/autoload.php';
 
 /*  AJAX HOOKS */
 

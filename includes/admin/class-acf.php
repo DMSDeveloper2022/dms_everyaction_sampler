@@ -1,9 +1,10 @@
 <?php
 
-namespace DMS_EA_Sampler\Vendor;
+namespace DMS_EA_Sampler\Includes\Admin;
 
 class ACF
 {
+    private static $instance = null;
     public function __construct()
     {
     }
@@ -20,4 +21,15 @@ class ACF
             ));
         }
     }
+    public static function get_instance()
+    {
+
+        if (null == self::$instance) {
+
+            self::$instance = new self;
+        }
+
+        return self::$instance;
+    }
 }
+namespace\ACF::get_instance()->create_acf_options_page();
