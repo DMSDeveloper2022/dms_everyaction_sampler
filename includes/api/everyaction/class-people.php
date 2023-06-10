@@ -12,25 +12,23 @@ class People
 
     const ENDPOINT = 'people';
     private $vanId;
-    private $params;
+    private $params = [];
 
-    function __construct($vanId = null)
+
+    function __construct($vanId = null, $expand = true)
     {
         if ($vanId) {
             $this->vanId = $vanId;
-            $this->params = [];
+        }
+        if ($expand) {
+            $this->params[] = ['$expand' => 'phones,emails,addresses'];
         }
     }
 
     private function get_person_ea($expand = true)
     {
-        if ($expand) {
-            array_push($this->params, '$expand=phones,emails,addresses');
-            $person = API_Calls::get(self::ENDPOINT . '/' . $this->vanId, $this->params);
-        } else {
-            $person = API_Calls::get(self::ENDPOINT . '/' . $this->vanId);
-        }
 
+        $person = API_Calls::get(self::ENDPOINT . '/' . $this->vanId);
 
         return $person;
     }
@@ -39,27 +37,20 @@ class People
 
         $people = API_Calls::get(self::ENDPOINT, $this->params);
 
-
-
         return $people;
     }
     static function get_person($vanId, $expand = true)
     {
-        $p = new People($vanId);
+        $p = new People($vanId, $expand);
 
-        if ($expand) {
-            $p->params = ['$expand' => 'phones,emails,addresses'];
-        }
 
         return $p->get_person_ea();
     }
     static function get_people($params, $expand = true)
     {
-        $p = new People();
+        $p = new People(null, $expand);
         $p->params = $params;
-        if ($expand) {
-            array_push($p->params, '$expand=phones,emails,addresses');
-        }
+
 
         return $p->get_people_ea();
     }

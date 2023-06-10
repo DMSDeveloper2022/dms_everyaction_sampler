@@ -19,7 +19,7 @@ class Person
     }
     private function get_full_name()
     {
-        if ($this->person->middleName) {
+        if (!empty($this->person->middleName)) {
             return $this->person->firstName . ' ' . substr($this->person->middleName, 0, 1) . '. ' . $this->person->lastName;
         }
         return $this->person->firstName . ' ' . $this->person->lastName;
@@ -69,23 +69,23 @@ class Person
     private function format_directory_card()
     {
 
-        $output = '<div class="dms-ea-sampler-container">';
-        $output .= '<div class="dms-ea-sampler-card">';
-        $output .= '<div class="dms-ea-sampler-card__header">';
-        $output .= '<div class="dms-ea-sampler-card__header__name"><h4>';
+        $output = '<div class="pj-ea-sampler-container">';
+        $output .= '<div class="pj-ea-sampler-card">';
+        $output .= '<div class="pj-ea-sampler-card__header">';
+        $output .= '<div class="pj-ea-sampler-card__header__name"><h4>';
         $output .= $this->get_full_name();
         $output .= '</h4></div>';
         $output .= '</div>';
-        $output .= '<div class="dms-ea-sampler-card__body">';
+        $output .= '<div class="pj-ea-sampler-card__body">';
 
-        $output .= '<div class="dms-ea-sampler-card__body__address">';
+        $output .= '<div class="pj-ea-sampler-card__body__address">';
         $output .= $this->format_address();
         $output .= '</div>';
 
-        $output .= '<div class="dms-ea-sampler-card__body__phone">';
+        $output .= '<div class="pj-ea-sampler-card__body__phone">';
         $output .= $this->format_phone();
         $output .= '</div>';
-        $output .= '<div class="dms-ea-sampler-card__body__email">';
+        $output .= '<div class="pj-ea-sampler-card__body__email">';
         $output .= $this->format_email();
         $output .= '</div>';
         $output .= '</div>';
@@ -105,6 +105,8 @@ class Person
     private function set_from_person($person)
     {
         $this->person = $person;
+
+        $this->van_id = $person->vanId;
     }
     static function get_card_from_shortcode($atts)
     {
@@ -112,7 +114,7 @@ class Person
             'van_id' => '',
         ), $atts));
 
-        $output = '<div class="dms-ea-sampler-container">';
+        $output = '<div class="pj-ea-sampler-container">';
         if (!empty($van_id)) {
 
             $person = static::get_card_from_van_id($van_id);

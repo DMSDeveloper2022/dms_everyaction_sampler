@@ -57,10 +57,10 @@ class People
 
         $p->set_from_ea();
 
-        if ($p->people) {
+        if ($p->people->items) {
 
-            foreach ($p->people as $person) {
 
+            foreach ($p->people->items as $person) {
                 $output .= Person::get_card_from_person($person);
             }
         }
@@ -70,6 +70,8 @@ class People
     {
         $output = '';
         $output .= Utilities::get_state_select('stateOrProvince', 'TN');
+
+        $output .= self::get_from_stateAbbreviation('TN');
         return $output;
     }
 }
