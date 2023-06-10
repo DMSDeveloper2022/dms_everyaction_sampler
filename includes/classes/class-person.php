@@ -102,11 +102,10 @@ class Person
 
         $this->person = PeopleAPI::get_person($this->van_id);
     }
-    private function set_from_person($person)
+    private function set_person($person)
     {
         $this->person = $person;
-
-        $this->van_id = $person->vanId;
+       
     }
     static function get_card_from_shortcode($atts)
     {
@@ -133,10 +132,11 @@ class Person
         return $p->format_directory_card();
     }
     static function get_card_from_person($person)
-    {
+     {
         $p = new static();
-        $p->set_from_person($person);
+        $p->set_person($person);
 
         return $p->format_directory_card();
+
     }
 }

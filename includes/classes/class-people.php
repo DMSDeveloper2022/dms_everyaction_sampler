@@ -27,7 +27,7 @@ class People
     private function set_from_ea()
     {
 
-        $this->people = PeopleAPI::get_people($this->params, true);
+        $this->people = PeopleAPI::get_people($this->params);
     }
     static function add_shortcodes()
     {
@@ -52,8 +52,15 @@ class People
     static function get_from_stateAbbreviation($stateOrProvince)
     {
         $output = '';
+        $params = array();
 
-        $p = new static(['stateOrProvince' => $stateOrProvince]);
+        $params['stateOrProvince'] = $stateOrProvince;
+        $params['$expand'] = 'phones,emails,addresses';
+        $params['$orderby'] = 'Name asc'; 
+
+
+        $p = new static($params);
+
 
         $p->set_from_ea();
 

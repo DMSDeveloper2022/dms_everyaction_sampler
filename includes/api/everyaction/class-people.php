@@ -15,17 +15,17 @@ class People
     private $params = [];
 
 
-    function __construct($vanId = null, $expand = true)
+    function __construct($vanId = null, $params= array())
     {
         if ($vanId) {
             $this->vanId = $vanId;
         }
-        if ($expand) {
-            $this->params[] = ['$expand' => 'phones,emails,addresses'];
+        if($params){
+            $this->params = $params;
         }
     }
 
-    private function get_person_ea($expand = true)
+    private function get_person_ea_by_van_id()
     {
 
         $person = API_Calls::get(self::ENDPOINT . '/' . $this->vanId);
@@ -39,18 +39,16 @@ class People
 
         return $people;
     }
-    static function get_person($vanId, $expand = true)
+    static function get_person($vanId)
     {
-        $p = new People($vanId, $expand);
+        $p = new People($vanId);
 
 
-        return $p->get_person_ea();
+        return $p->get_person_ea_by_van_id();
     }
-    static function get_people($params, $expand = true)
+    static function get_people($params)
     {
-        $p = new People(null, $expand);
-        $p->params = $params;
-
+        $p = new People(null, $params);
 
         return $p->get_people_ea();
     }
