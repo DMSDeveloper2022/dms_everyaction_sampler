@@ -1,6 +1,6 @@
 <?php
 
-namespace DMS_EA_Sampler\Includes\Classes;
+namespace PJ_EA_Sampler\Includes\Classes;
 
 class Utilities
 {
@@ -26,6 +26,25 @@ class Utilities
         }
 
         $output .= "</select>";
+
+        return $output;
+    }
+    //a function that returns a link listing of all the states using get_states(), the labl is the state name and the value is the state abbreviation
+    static function get_state_links( $class='')
+    {
+
+        $states = static::get_states();
+
+        $output = "<ul class='$class'>";
+
+        foreach ($states as $key => $value) {
+
+            $value = ucwords(strtolower($value));
+
+            $output .= "<li data-state-value='$key'>$value</a></li>";
+        }
+
+        $output .= "</ul>";
 
         return $output;
     }

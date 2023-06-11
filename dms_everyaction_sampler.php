@@ -1,6 +1,6 @@
 <?php
 
-namespace DMS_EA_Sampler;
+namespace PJ_EA_Sampler;
 
 
 /*
@@ -19,28 +19,32 @@ if (!defined('ABSPATH')) {
   exit;
 }
 
-define('DMS_EA_PLUGIN_PATH', plugin_dir_path(__FILE__));
+define('PJ_EA_PLUGIN_PATH', plugin_dir_path(__FILE__));
 
-define('DMS_EA_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('PJ_EA_PLUGIN_URL', plugin_dir_url(__FILE__));
 
-define('DMS_EA_PLUGIN_FOLDER', dirname(__FILE__));
+define('PJ_EA_PLUGIN_FOLDER', dirname(__FILE__));
 
-define('DMS_EA_PLUGIN_FILE', __FILE__);
+define('PJ_EA_PLUGIN_FILE', __FILE__);
 
-define('DMS_EA_TEXT_DOMAIN', 'dmseasampler');
+define('PJ_EA_TEXT_DOMAIN', 'dmseasampler');
 
-define('DMS_EA_VERSION', '1.0');
+define('PJ_EA_VERSION', '1.0');
 
-define('DMS_EA_PREFIX', 'pj_ea_');
+define('PJ_EA_PREFIX', 'pj_ea_');
 
-include DMS_EA_PLUGIN_PATH . '/includes/init.php';
+include PJ_EA_PLUGIN_PATH . '/includes/init.php';
 
 /*  AJAX HOOKS */
 
-// add_action('wp_ajax_dms_ea_webhook', __NAMESPACE__ . '\\process_EA_webhook');
+add_action('wp_ajax_pj_ea_webhook', __NAMESPACE__ . '\\process_EA_state_webhook');
 
-// add_action('wp_ajax_nopriv_dms_ea_webhook', __NAMESPACE__ . '\\process_EA_webhook');
+add_action('wp_ajax_nopriv_pj_ea_webhook', __NAMESPACE__ . '\\process_EA_state_webhook');
 
+function process_EA_state_webhook()
+{
 
+  \PJ_EA_Sampler\Includes\Classes\People::process_EA_state_webhook();
+}
 
 /* END AJAX HOOKS */

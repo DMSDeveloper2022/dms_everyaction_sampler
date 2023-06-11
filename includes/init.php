@@ -1,9 +1,9 @@
 <?php
 
-namespace DMS_EA_Sampler\Includes;
+namespace PJ_EA_Sampler\Includes;
 
-use DMS_EA_Sampler\Includes\Admin\Admin as Admin;
-use DMS_EA_Sampler\Includes\Classes\FrontEnd as FrontEnd;
+use PJ_EA_Sampler\Includes\Admin\Admin as Admin;
+use PJ_EA_Sampler\Includes\Classes\FrontEnd as FrontEnd;
 
 if (!defined('ABSPATH')) {
     exit;
@@ -23,8 +23,8 @@ class Init
     private function load_dependencies()
     {
 
-        include_once DMS_EA_PLUGIN_PATH . 'includes/admin/dependencies.php';
-        include_once DMS_EA_PLUGIN_PATH . 'includes/classes/dependencies.php';
+        include_once PJ_EA_PLUGIN_PATH . 'includes/admin/dependencies.php';
+        include_once PJ_EA_PLUGIN_PATH . 'includes/classes/dependencies.php';
     }
 
     private function define_admin_hooks()

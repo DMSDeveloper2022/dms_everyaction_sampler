@@ -1,10 +1,10 @@
 <?php
 
-namespace   DMS_EA_Sampler\Includes\Classes;
+namespace   PJ_EA_Sampler\Includes\Classes;
 
-require_once DMS_EA_PLUGIN_PATH . 'includes/api/everyaction/class-people.php';
+require_once PJ_EA_PLUGIN_PATH . 'includes/api/everyaction/class-people.php';
 
-use DMS_EA_Sampler\Includes\API\EveryAction\People as PeopleAPI;
+use PJ_EA_Sampler\Includes\API\EveryAction\People as PeopleAPI;
 
 class Person
 {
@@ -95,7 +95,7 @@ class Person
     }
     static function add_shortcodes()
     {
-        add_shortcode(DMS_EA_PREFIX . 'person_card', [__CLASS__, 'get_card_from_shortcode']);
+        add_shortcode(PJ_EA_PREFIX . 'person_card', [__CLASS__, 'get_card_from_shortcode']);
     }
     private function set_from_ea()
     {

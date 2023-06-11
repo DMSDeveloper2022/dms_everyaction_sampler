@@ -1,10 +1,10 @@
 <?php
 
-namespace   DMS_EA_Sampler\Includes\API\EveryAction;
+namespace   PJ_EA_Sampler\Includes\API\EveryAction;
 
-require_once DMS_EA_PLUGIN_PATH . 'includes/api/everyaction/class-credentials.php';
+require_once PJ_EA_PLUGIN_PATH . 'includes/api/everyaction/class-credentials.php';
 
-use DMS_EA_Sampler\Includes\API\EveryAction\Credentials as Credentials;
+use PJ_EA_Sampler\Includes\API\EveryAction\Credentials as Credentials;
 
 //class that handles communication with the EveryAction API
 class   API_Calls
@@ -21,7 +21,7 @@ class   API_Calls
     //private function that makes the API call and returns the response
     private function make_api_call($endpoint, $method, $body = null)
     {
-        require_once DMS_EA_PLUGIN_PATH . '/vendor/autoload.php';
+        require_once PJ_EA_PLUGIN_PATH . '/vendor/autoload.php';
 
         $client = new \GuzzleHttp\Client();
 

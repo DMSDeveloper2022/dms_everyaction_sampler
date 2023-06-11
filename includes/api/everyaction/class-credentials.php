@@ -1,6 +1,6 @@
 <?php
 
-namespace DMS_EA_Sampler\Includes\API\EveryAction;
+namespace PJ_EA_Sampler\Includes\API\EveryAction;
 
 //class that handles the credentials for the EveryAction API credentials stored in the 2 ACF fields in the EveryAction Settings page, one for the API key and one for the API secret
 class   Credentials

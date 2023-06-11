@@ -1,6 +1,6 @@
 <?php
 
-namespace DMS_EA_Sampler\Includes\Admin;
+namespace PJ_EA_Sampler\Includes\Admin;
 
 class ACF
 {

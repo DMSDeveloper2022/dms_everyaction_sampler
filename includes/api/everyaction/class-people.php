@@ -1,10 +1,10 @@
 <?php
 
-namespace DMS_EA_Sampler\Includes\API\EveryAction;
+namespace PJ_EA_Sampler\Includes\API\EveryAction;
 
-require_once DMS_EA_PLUGIN_PATH . 'includes/api/everyaction/class-api-calls.php';
+require_once PJ_EA_PLUGIN_PATH . 'includes/api/everyaction/class-api-calls.php';
 
-use DMS_EA_Sampler\Includes\API\EveryAction\API_Calls as API_Calls;
+use PJ_EA_Sampler\Includes\API\EveryAction\API_Calls as API_Calls;
 
 
 class People
