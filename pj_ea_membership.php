@@ -37,11 +37,11 @@ include PJ_EA_PLUGIN_PATH . '/includes/init.php';
 
 /*  AJAX HOOKS */
 
-add_action('wp_ajax_pj_ea_state_filter', __NAMESPACE__ . '\\process_EA_state_filter');
+add_action('wp_ajax_pj_ea_state_filter', __NAMESPACE__ . '\\process_EA_state_selection');
 
-add_action('wp_ajax_nopriv_pj_ea_state_filter', __NAMESPACE__ . '\\process_EA_state_filter');
+add_action('wp_ajax_nopriv_pj_ea_state_filter', __NAMESPACE__ . '\\process_EA_state_selection');
 
-function process_EA_state_webhook()
+function process_EA_state_selection()
 {
 
   \PJ_EA_Membership\Includes\Classes\People::process_EA_state_filter();

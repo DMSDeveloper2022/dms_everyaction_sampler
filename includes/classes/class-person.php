@@ -29,8 +29,10 @@ class Person
         $output = '';
         if ($this->person->addresses) {
             foreach ($this->person->addresses as $address) {
-                $output = $address->addressLine1 . '<br>';
-                $output .= $address->city . ', ' . $address->stateOrProvince . ' ' . $address->zipOrPostalCode;
+                if ($address->isPreferred  == true) {
+                    $output .= $address->addressLine1 . '<br>';
+                    $output .= $address->city . ', ' . $address->stateOrProvince . ' ' . $address->zipOrPostalCode;
+                }
             }
         }
 
@@ -73,7 +75,7 @@ class Person
         $output .= '<div class="pj-ea-sampler-card">';
         $output .= '<div class="pj-ea-sampler-card__header">';
         $output .= '<div class="pj-ea-sampler-card__header__name"><h4>';
-        $output .= $this->get_full_name();
+        $output .= $this->get_full_name() . ' (' . $this->person->vanId . ')';
         $output .= '</h4></div>';
         $output .= '</div>';
         $output .= '<div class="pj-ea-sampler-card__body">';
