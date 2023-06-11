@@ -1,12 +1,12 @@
 <?php
 
-namespace PJ_EA_Sampler\Includes\Classes;
+namespace PJ_EA_Membership\Includes\Classes;
 
 require_once PJ_EA_PLUGIN_PATH . 'includes/classes/class-people.php';
 require_once PJ_EA_PLUGIN_PATH . 'includes/classes/class-person.php';
 
-use PJ_EA_Sampler\Includes\Classes\People as People;
-use PJ_EA_Sampler\Includes\Classes\Person as Person;
+use PJ_EA_Membership\Includes\Classes\People as People;
+use PJ_EA_Membership\Includes\Classes\Person as Person;
 
 class FrontEnd
 {

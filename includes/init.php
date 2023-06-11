@@ -1,9 +1,9 @@
 <?php
 
-namespace PJ_EA_Sampler\Includes;
+namespace PJ_EA_Membership\Includes;
 
-use PJ_EA_Sampler\Includes\Admin\Admin as Admin;
-use PJ_EA_Sampler\Includes\Classes\FrontEnd as FrontEnd;
+use PJ_EA_Membership\Includes\Admin\Admin as Admin;
+use PJ_EA_Membership\Includes\Classes\FrontEnd as FrontEnd;
 
 if (!defined('ABSPATH')) {
     exit;

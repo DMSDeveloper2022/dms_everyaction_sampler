@@ -1,10 +1,10 @@
 <?php
 
-namespace   PJ_EA_Sampler\Includes\API\EveryAction;
+namespace   PJ_EA_Membership\Includes\API\EveryAction;
 
 require_once PJ_EA_PLUGIN_PATH . 'includes/api/everyaction/class-credentials.php';
 
-use PJ_EA_Sampler\Includes\API\EveryAction\Credentials as Credentials;
+use PJ_EA_Membership\Includes\API\EveryAction\Credentials as Credentials;
 
 //class that handles communication with the EveryAction API
 class   API_Calls

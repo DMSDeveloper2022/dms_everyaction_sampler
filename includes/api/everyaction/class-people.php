@@ -1,10 +1,10 @@
 <?php
 
-namespace PJ_EA_Sampler\Includes\API\EveryAction;
+namespace PJ_EA_Membership\Includes\API\EveryAction;
 
 require_once PJ_EA_PLUGIN_PATH . 'includes/api/everyaction/class-api-calls.php';
 
-use PJ_EA_Sampler\Includes\API\EveryAction\API_Calls as API_Calls;
+use PJ_EA_Membership\Includes\API\EveryAction\API_Calls as API_Calls;
 
 
 class People
@@ -15,12 +15,12 @@ class People
     private $params = [];
 
 
-    function __construct($vanId = null, $params= array())
+    function __construct($vanId = null, $params = array())
     {
         if ($vanId) {
             $this->vanId = $vanId;
         }
-        if($params){
+        if ($params) {
             $this->params = $params;
         }
     }

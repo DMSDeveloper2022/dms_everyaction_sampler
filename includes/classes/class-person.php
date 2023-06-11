@@ -1,10 +1,10 @@
 <?php
 
-namespace   PJ_EA_Sampler\Includes\Classes;
+namespace   PJ_EA_Membership\Includes\Classes;
 
 require_once PJ_EA_PLUGIN_PATH . 'includes/api/everyaction/class-people.php';
 
-use PJ_EA_Sampler\Includes\API\EveryAction\People as PeopleAPI;
+use PJ_EA_Membership\Includes\API\EveryAction\People as PeopleAPI;
 
 class Person
 {
@@ -105,7 +105,6 @@ class Person
     private function set_person($person)
     {
         $this->person = $person;
-       
     }
     static function get_card_from_shortcode($atts)
     {
@@ -132,11 +131,10 @@ class Person
         return $p->format_directory_card();
     }
     static function get_card_from_person($person)
-     {
+    {
         $p = new static();
         $p->set_person($person);
 
         return $p->format_directory_card();
-
     }
 }

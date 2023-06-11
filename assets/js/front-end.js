@@ -6,7 +6,7 @@
 
             var state = $(this).val();
 
-            let data = "action=pj_ea_webhook&ajax_nonce="+ajax_object.ajax_nonce+"&stateOrProvince="+state+"&ajax_request=true";
+            let data = "action=pj_ea_state_filter&ajax_nonce="+ajax_object.ajax_nonce+"&stateOrProvince="+state+"&ajax_request=true";
         
         //    console.log(data);
               $.ajax({

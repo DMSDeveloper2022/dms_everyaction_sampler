@@ -1,15 +1,15 @@
 <?php
 
-namespace   PJ_EA_Sampler\Includes\Classes;
+namespace   PJ_EA_Membership\Includes\Classes;
 
 require_once PJ_EA_PLUGIN_PATH . 'includes/api/everyaction/class-people.php';
 
 require_once PJ_EA_PLUGIN_PATH . 'includes/classes/class-person.php';
 require_once PJ_EA_PLUGIN_PATH . 'includes/classes/class-utilities.php';
 
-use PJ_EA_Sampler\Includes\Classes\Person as Person;
-use PJ_EA_Sampler\Includes\Classes\Utilities as Utilities;
-use PJ_EA_Sampler\Includes\API\EveryAction\People as PeopleAPI;
+use PJ_EA_Membership\Includes\Classes\Person as Person;
+use PJ_EA_Membership\Includes\Classes\Utilities as Utilities;
+use PJ_EA_Membership\Includes\API\EveryAction\People as PeopleAPI;
 
 
 class People
@@ -17,7 +17,7 @@ class People
     // private static $instance = null;
 
     private $params = [];
-    private $people = [];
+    private $people = null;
 
     function __construct($params = [])
     {
@@ -121,6 +121,7 @@ class People
     private static function display_stateOrProvince_select($selected)
     {
         $output = '';
+
         $statesOrProvinces = static::set_statesOrProvinces();
 
         if (!empty($statesOrProvinces)) {
@@ -145,11 +146,7 @@ class People
         }
         return $output;
     }
-    private static function display_directory($stateOrProvince = 'NY')
-    {
 
-        return static::get_from_stateAbbreviation($stateOrProvince);
-    }
     static function display_directory_shortcode($atts)
     {
         $output = '';
@@ -174,8 +171,11 @@ class People
         return $output;
     }
 
-
-    static function process_EA_state_webhook()
+    private static function display_directory($stateOrProvince = 'NY')
+    {
+        return static::get_from_stateAbbreviation($stateOrProvince);
+    }
+    static function process_EA_state_filter()
     {
 
         if (isset($_POST['ajax_request']) && $_POST['ajax_request'] === 'true' && isset($_POST['ajax_nonce']) && wp_verify_nonce($_POST['ajax_nonce'], 'pj_ea_ajax_nonce')) {

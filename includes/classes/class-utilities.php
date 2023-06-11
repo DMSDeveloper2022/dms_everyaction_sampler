@@ -1,6 +1,6 @@
 <?php
 
-namespace PJ_EA_Sampler\Includes\Classes;
+namespace PJ_EA_Membership\Includes\Classes;
 
 class Utilities
 {
@@ -30,7 +30,7 @@ class Utilities
         return $output;
     }
     //a function that returns a link listing of all the states using get_states(), the labl is the state name and the value is the state abbreviation
-    static function get_state_links( $class='')
+    static function get_state_links($class = '')
     {
 
         $states = static::get_states();
