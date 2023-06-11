@@ -71,23 +71,23 @@ class Person
     private function format_directory_card()
     {
 
-        $output = '<div class="pj-ea-sampler-container">';
-        $output .= '<div class="pj-ea-sampler-card">';
-        $output .= '<div class="pj-ea-sampler-card__header">';
-        $output .= '<div class="pj-ea-sampler-card__header__name"><h4>';
-        $output .= $this->get_full_name() . ' (' . $this->person->vanId . ')';
+        $output = '<div class="pj-ea-member-container">';
+        $output .= '<div class="pj-ea-member-card">';
+        $output .= '<div class="pj-ea-member-card__header">';
+        $output .= '<div class="pj-ea-member-card__header__name"><h4>';
+        $output .= $this->get_full_name();
         $output .= '</h4></div>';
         $output .= '</div>';
-        $output .= '<div class="pj-ea-sampler-card__body">';
+        $output .= '<div class="pj-ea-member-card__body">';
 
-        $output .= '<div class="pj-ea-sampler-card__body__address">';
+        $output .= '<div class="pj-ea-member-card__body__address">';
         $output .= $this->format_address();
         $output .= '</div>';
 
-        $output .= '<div class="pj-ea-sampler-card__body__phone">';
+        $output .= '<div class="pj-ea-member-card__body__phone">';
         $output .= $this->format_phone();
         $output .= '</div>';
-        $output .= '<div class="pj-ea-sampler-card__body__email">';
+        $output .= '<div class="pj-ea-member-card__body__email">';
         $output .= $this->format_email();
         $output .= '</div>';
         $output .= '</div>';
@@ -114,7 +114,7 @@ class Person
             'van_id' => '',
         ), $atts));
 
-        $output = '<div class="pj-ea-sampler-container">';
+        $output = '<div class="pj-ea-card-container">';
         if (!empty($van_id)) {
 
             $person = static::get_card_from_van_id($van_id);

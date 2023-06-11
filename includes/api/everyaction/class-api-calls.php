@@ -58,6 +58,10 @@ class   API_Calls
     {
         $api_calls = new API_Calls();
 
+        if (is_array($body)) {
+            $body = json_encode($body);
+        }
+
         $response =  $api_calls->make_api_call($endpoint, 'POST', $body, $output = 'object');
 
         return $output == 'json' ? $response : $api_calls->decode_json($response);
@@ -72,7 +76,11 @@ class   API_Calls
     {
         $api_calls = new API_Calls();
 
+        if (is_array($body)) {
+            $body = json_encode($body);
+        }
+
+
         return $api_calls->make_api_call($endpoint, 'PUT', $body);
     }
 }
-//RUFERU0uMDAwMDAxLjMzODpiNjUzYjgwZi0zY2M4LTAxNTAtODcyMi0yNmIxM2FhMmQ5OGR8MQ==

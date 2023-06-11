@@ -16,7 +16,7 @@
                 data: data,
                 success: function (response) {
                     //  console.log(response);
-                    $('#pj_ea_membership_directory').html(response);
+                    $('#pj_ea_membership_container').html(response);
                 }
 
               });   

@@ -159,13 +159,18 @@ class People
                 $atts
             )
         );
+        $output .= '<div class="' . PJ_EA_PREFIX . 'directory_wrapper">';
+        $output .= '<div class="' . PJ_EA_PREFIX . 'membership_filters">';
 
         $output .= static::display_stateOrProvince_select($stateOrProvince);
 
-        $output .= '<div id="' . PJ_EA_PREFIX . 'membership_directory">';
+        $output .= '</div>';
+
+        $output .= '<div id="' . PJ_EA_PREFIX . 'membership_container">';
 
         $output .= static::display_directory($stateOrProvince);
 
+        $output .= '</div>';
         $output .= '</div>';
 
         return $output;
