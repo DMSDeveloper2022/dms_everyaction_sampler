@@ -26,7 +26,7 @@ class FrontEnd
 
     public function enqueue_scripts()
     {
-        wp_enqueue_script('dms-ea-sampler-front-end', PJ_EA_PLUGIN_URL . 'assets/js/front-end.js', array('jquery'), PJ_EA_VERSION, false);
+        wp_enqueue_script('dms-ea-sampler-front-end', PJ_EA_PLUGIN_URL . 'assets/js/front-end-min.js', array('jquery'), PJ_EA_VERSION, false);
         $params = array(
             'ajax_url' => admin_url('admin-ajax.php'),
             'ajax_nonce' => wp_create_nonce('pj_ea_ajax_nonce'),

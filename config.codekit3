@@ -176,6 +176,14 @@
       "oAP" : "\/includes\/admin\/class-admin.php",
       "oF" : 0
     },
+    "\/includes\/admin\/class-cron-jobs.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/includes\/admin\/class-cron-jobs.php",
+      "oF" : 0
+    },
     "\/includes\/admin\/dependencies.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -222,6 +230,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/includes\/api\/everyaction\/dependencies.php",
+      "oF" : 0
+    },
+    "\/includes\/classes\/class-data-encryption.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/includes\/classes\/class-data-encryption.php",
       "oF" : 0
     },
     "\/includes\/classes\/class-front-end.php" : {
