@@ -28,7 +28,7 @@ class People
     private function get_person_ea_by_van_id()
     {
 
-        $person = API_Calls::get(self::ENDPOINT . '/' . $this->vanId);
+        $person = API_Calls::get(self::ENDPOINT . '/' . $this->vanId, $this->params);
 
         return $person;
     }
@@ -39,9 +39,9 @@ class People
 
         return $people;
     }
-    static function get_person($vanId)
+    static function get_person($vanId, $params = [])
     {
-        $p = new People($vanId);
+        $p = new People($vanId, $params);
 
 
         return $p->get_person_ea_by_van_id();

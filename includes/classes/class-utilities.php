@@ -392,4 +392,15 @@ class Utilities
 
         return filter_has_var(INPUT_GET, $var_name) ? filter_input(INPUT_GET, $var_name) : $fallback_val;
     }
+    //a static function called format_phone_us that receives a phone number and returns a formatted number in the format "1+ (xxx) xxx-xxxx"
+    static function format_phone_us($phone)
+    {
+        $phone = preg_replace("/[^0-9]/", "", $phone);
+        if (strlen($phone) == 7)
+            return preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $phone);
+        elseif (strlen($phone) == 10)
+            return preg_replace("/([0-9]{3})([0-9]{3})([0-9]{4})/", "($1) $2-$3", $phone);
+        else
+            return $phone;
+    }
 }

@@ -46,5 +46,14 @@ function process_EA_state_selection()
 
   \PJ_EA_Membership\Includes\Classes\People::process_EA_state_filter();
 }
+add_action('wp_ajax_pj_ea_code_filter', __NAMESPACE__ . '\\process_EA_code_selection');
+
+add_action('wp_ajax_nopriv_pj_ea_code_filter', __NAMESPACE__ . '\\process_EA_code_selection');
+
+function process_EA_code_selection()
+{
+
+  \PJ_EA_Membership\Includes\Classes\People::process_EA_code_filter();
+}
 
 /* END AJAX HOOKS */

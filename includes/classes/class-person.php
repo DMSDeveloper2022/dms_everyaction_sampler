@@ -17,6 +17,20 @@ class Person
             $this->van_id = $van_id;
         }
     }
+    private function get_codes()
+    {
+        $codes = [];
+        if ($this->person->codes) {
+            foreach ($this->person->codes as $code) {
+                $codes[] = $code->name;
+            }
+        }
+
+        if ($codes) {
+            return implode(', ', $codes);
+        }
+        return '';
+    }
     private function get_full_name()
     {
         if (!empty($this->person->middleName)) {
@@ -58,7 +72,7 @@ class Person
             foreach ($this->person->phones as $phone) {
 
                 if ($phone->isPreferred) {
-                    $output = $phone->phoneNumber;
+                    $output = Utilities::format_phone_us($phone->phoneNumber);
                     if ($phone->ext) {
                         $output .= ' ' . $phone->ext;
                     }
@@ -77,7 +91,19 @@ class Person
         $output .= '<div class="pj-ea-member-card__header__name"><h4>';
         $output .= $this->get_full_name();
         $output .= '</h4></div>';
+
+        //comment out ar run time
+        $output .= '<div class="pj-ea-member-card__header__vanid">';
+        $output .= $this->van_id;
         $output .= '</div>';
+
+        $output .= '<div class="pj-ea-member-card__header_codes">';
+        $output .= $this->get_codes();
+        $output .= '</div>';
+        //end comment out
+        $output .= '</div>';
+
+
         $output .= '<div class="pj-ea-member-card__body">';
 
         $output .= '<div class="pj-ea-member-card__body__address">';
@@ -90,6 +116,11 @@ class Person
         $output .= '<div class="pj-ea-member-card__body__email">';
         $output .= $this->format_email();
         $output .= '</div>';
+        //comment out ar run time
+        $output .= '<div class="pj-ea-member-card__header_codes">';
+        $output .= $this->get_codes();
+        $output .= '</div>';
+        //end comment out
         $output .= '</div>';
         $output .= '</div>';
         $output .= '</div>';
@@ -101,11 +132,13 @@ class Person
     }
     private function set_from_ea()
     {
-
-        $this->person = PeopleAPI::get_person($this->van_id);
+        $params = [];
+        $params['$expand'] = 'phones,emails,addresses,codes';
+        $this->person = PeopleAPI::get_person($this->van_id, $params);
     }
     private function set_person($person)
     {
+        $this->van_id = $person->vanId;
         $this->person = $person;
     }
     static function get_card_from_shortcode($atts)
@@ -132,11 +165,11 @@ class Person
 
         return $p->format_directory_card();
     }
-    static function get_card_from_person($person)
-    {
-        $p = new static();
-        $p->set_person($person);
+    // static function get_card_from_person($person)
+    // {
+    //     $p = new static();
+    //     $p->set_person($person);
 
-        return $p->format_directory_card();
-    }
+    //     return $p->format_directory_card();
+    // }
 }
