@@ -7,17 +7,17 @@ class Admin
     private static $instance = null;
     public function __construct()
     {
-        require_once PJ_EA_PLUGIN_PATH . 'includes/admin/class-cron-jobs.php';
+        require_once PJ_EA_PLUGIN_PATH . 'includes/admin/class-cron.php';
     }
 
     public function enqueue_styles()
     {
-        wp_enqueue_style('dms-ea-sampler-admin', PJ_EA_PLUGIN_URL . 'assets/css/dms-ea-sampler-admin.css', array(), PJ_EA_VERSION, 'all');
+        wp_enqueue_style('pj-ea-sampler-admin', PJ_EA_PLUGIN_URL . 'assets/css/pj-ea-sampler-admin.css', array(), PJ_EA_VERSION, 'all');
     }
 
     public function enqueue_scripts()
     {
-        wp_enqueue_script('dms-ea-sampler-admin', PJ_EA_PLUGIN_URL . 'assets/js/dms-ea-sampler-admin.js', array('jquery'), PJ_EA_VERSION, false);
+        wp_enqueue_script('pj-ea-sampler-admin', PJ_EA_PLUGIN_URL . 'assets/js/pj-ea-sampler-admin.js', array('jquery'), PJ_EA_VERSION, false);
     }
     static function get_instance()
     {

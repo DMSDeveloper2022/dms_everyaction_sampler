@@ -35,7 +35,28 @@ define('PJ_EA_PREFIX', 'pj_ea_');
 
 include PJ_EA_PLUGIN_PATH . '/includes/init.php';
 
-/*  AJAX HOOKS */
+include_once PJ_EA_PLUGIN_PATH . 'includes/import/class-reconciliation-table.php';
+include_once PJ_EA_PLUGIN_PATH . 'includes/import/class-updates-table.php';
+
+/*  REGISTER ACTIVATION HOOK */
+
+register_activation_hook(__FILE__, __NAMESPACE__ . '\\activate_pj_ea_membership');
+
+function activate_pj_ea_membership()
+{
+  \PJ_EA_Membership\Includes\Import\Reconciliation_Table::create_the_table();
+  \PJ_EA_Membership\Includes\Import\Update_Contacts_Table::create_the_table();
+}
+/*  REGISTER DEACTIVATION HOOK */
+register_deactivation_hook(__FILE__, __NAMESPACE__ . '\\deactivate_pj_ea_membership');
+function deactivate_pj_ea_membership()
+{
+  // \PJ_EA_Membership\Includes\Import\Reconciliation_Table::delete_the_table();
+  // \PJ_EA_Membership\Includes\Import\Update_Contacts_Table::delete_the_table();
+}
+
+
+
 
 add_action('wp_ajax_pj_ea_state_filter', __NAMESPACE__ . '\\process_EA_state_selection');
 

@@ -25,6 +25,9 @@ class Init
 
         include_once PJ_EA_PLUGIN_PATH . 'includes/admin/dependencies.php';
         include_once PJ_EA_PLUGIN_PATH . 'includes/classes/dependencies.php';
+        include_once PJ_EA_PLUGIN_PATH . 'includes/import/class-reconciliation-table.php';
+        include_once PJ_EA_PLUGIN_PATH . 'includes/import/class-updates-table.php';
+        include_once PJ_EA_PLUGIN_PATH . 'includes/import/class-email-import.php';
     }
 
     private function define_admin_hooks()

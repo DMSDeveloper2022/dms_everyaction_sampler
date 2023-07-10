@@ -11,6 +11,7 @@ class Person
     // private static $instance = null;
     private $van_id;
     private $person;
+    private $membership;
     function __construct($van_id = null)
     {
         if ($van_id) {
@@ -124,6 +125,8 @@ class Person
         $output .= '</div>';
         $output .= '</div>';
         $output .= '</div>';
+
+
         return $output;
     }
     static function add_shortcodes()
@@ -135,6 +138,11 @@ class Person
         $params = [];
         $params['$expand'] = 'phones,emails,addresses,codes';
         $this->person = PeopleAPI::get_person($this->van_id, $params);
+    }
+    private function set_membership_from_ea()
+    {
+
+        $this->membership = PeopleAPI::get_membership($this->van_id);
     }
     private function set_person($person)
     {
@@ -162,6 +170,9 @@ class Person
     {
         $p = new static($van_id);
         $p->set_from_ea();
+
+        $p->set_membership_from_ea();
+
 
         return $p->format_directory_card();
     }

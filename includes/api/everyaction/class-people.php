@@ -32,6 +32,11 @@ class People
 
         return $person;
     }
+    private function get_membership_ea()
+    {
+
+        return API_Calls::get(self::ENDPOINT . '/' . $this->vanId . '/membership');
+    }
     private function get_people_ea()
     {
 
@@ -45,6 +50,12 @@ class People
 
 
         return $p->get_person_ea_by_van_id();
+    }
+    static function get_membership($vanId)
+    {
+        $p = new People($vanId);
+
+        return $p->get_membership_ea();
     }
     static function get_people($params)
     {

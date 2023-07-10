@@ -17,11 +17,11 @@ class   Credentials
 
         if (function_exists('get_field')) {
 
-            $this->environment = get_field('dms_ea_select_environment', 'option');
+            $this->environment = get_field('pj_ea_select_environment', 'option');
 
-            $field_name = 'dms_ea_' . $this->environment . '_api';
+            $field_name = 'pj_ea_' . $this->environment . '_api';
 
-            $this->set_key_values('dms_ea_sandbox_api');
+            $this->set_key_values($field_name);
         }
     }
     private function set_key_values($field_name)
@@ -29,9 +29,9 @@ class   Credentials
 
         if (function_exists('have_rows')) {
 
-            if (have_rows('dms_ea_sandbox_api', 'option')) :
+            if (have_rows($field_name, 'option')) :
 
-                while (have_rows('dms_ea_sandbox_api', 'option')) : the_row();
+                while (have_rows($field_name, 'option')) : the_row();
 
                     $this->api_key = get_sub_field('api_key');
                     $this->api_secret = get_sub_field('api_secret');
