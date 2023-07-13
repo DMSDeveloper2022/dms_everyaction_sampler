@@ -7,7 +7,6 @@ class Admin
     private static $instance = null;
     public function __construct()
     {
-        require_once PJ_EA_PLUGIN_PATH . 'includes/admin/class-cron.php';
     }
 
     public function enqueue_styles()

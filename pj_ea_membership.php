@@ -35,8 +35,6 @@ define('PJ_EA_PREFIX', 'pj_ea_');
 
 include PJ_EA_PLUGIN_PATH . '/includes/init.php';
 
-include_once PJ_EA_PLUGIN_PATH . 'includes/import/class-reconciliation-table.php';
-include_once PJ_EA_PLUGIN_PATH . 'includes/import/class-updates-table.php';
 
 /*  REGISTER ACTIVATION HOOK */
 
