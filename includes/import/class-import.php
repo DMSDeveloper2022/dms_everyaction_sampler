@@ -1,12 +1,12 @@
 <?php
 
-namespace   PJ_EA_Membership\Includes\Import;
+namespace   PJ_Membership_Directory\Includes\Import;
 
-require_once PJ_EA_PLUGIN_PATH . 'includes/import/class-reconciliation-table.php';
-require_once PJ_EA_PLUGIN_PATH . 'includes/import/class-updates-table.php';
+require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/import/class-reconciliation-table.php';
+require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/import/class-updates-table.php';
 
-use PJ_EA_Membership\Includes\Import\Reconciliation_Table as Reconciliation_Table;
-use PJ_EA_Membership\Includes\Import\Update_Contacts_Table as Update_Contacts_Table;
+use PJ_Membership_Directory\Includes\Import\Reconciliation_Table as Reconciliation_Table;
+use PJ_Membership_Directory\Includes\Import\Update_Contacts_Table as Update_Contacts_Table;
 
 class Import
 {

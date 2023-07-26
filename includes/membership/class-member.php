@@ -1,6 +1,6 @@
 <?php
 
-namespace PJ_EA_Membership\Includes\Membership;
+namespace PJ_Membership_Directory\Includes\Membership;
 
 
 class Member
@@ -32,7 +32,7 @@ class Member
     protected $lifetime_member = false;
     protected $practice_areas = [];
     protected $leadership = false;
-    protected $last_ea_update = '';
+    protected $last_MEM_DIR_update = '';
 
 
     protected $dp_id;

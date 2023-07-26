@@ -1,6 +1,6 @@
 <?php
 
-namespace PJ_EA_Membership\Includes\Classes;
+namespace PJ_Membership_Directory\Includes\Classes;
 
 class Data_Encryption
 {
@@ -12,8 +12,8 @@ class Data_Encryption
     }
     private function get_default_key()
     {
-        if (defined('PJ_EA_ENCRYPT_KEY') && '' !== PJ_EA_ENCRYPT_KEY) {
-            return PJ_EA_ENCRYPT_KEY;
+        if (defined('PJ_MEM_DIR_ENCRYPT_KEY') && '' !== PJ_MEM_DIR_ENCRYPT_KEY) {
+            return PJ_MEM_DIR_ENCRYPT_KEY;
         }
 
         if (defined('LOGGED_IN_KEY') && '' !== LOGGED_IN_KEY) {
@@ -26,8 +26,8 @@ class Data_Encryption
 
     private function get_default_salt()
     {
-        if (defined('PJ_EA_ENCRYPT_SALT') && '' !== PJ_EA_ENCRYPT_SALT) {
-            return PJ_EA_ENCRYPT_SALT;
+        if (defined('PJ_MEM_DIR_ENCRYPT_SALT') && '' !== PJ_MEM_DIR_ENCRYPT_SALT) {
+            return PJ_MEM_DIR_ENCRYPT_SALT;
         }
 
         if (defined('LOGGED_IN_SALT') && '' !== LOGGED_IN_SALT) {

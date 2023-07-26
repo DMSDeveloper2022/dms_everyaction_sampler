@@ -1,17 +1,17 @@
 <?php
 
-namespace   PJ_EA_Membership\Includes\Classes;
+namespace   PJ_Membership_Directory\Includes\Classes;
 
-require_once PJ_EA_PLUGIN_PATH . 'includes/api/everyaction/class-people.php';
+require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/api/everyaction/class-people.php';
 
-require_once PJ_EA_PLUGIN_PATH . 'includes/classes/class-person.php';
-require_once PJ_EA_PLUGIN_PATH . 'includes/classes/class-source-code.php';
-require_once PJ_EA_PLUGIN_PATH . 'includes/classes/class-utilities.php';
+require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/classes/class-person.php';
+require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/classes/class-source-code.php';
+require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/classes/class-utilities.php';
 
-use PJ_EA_Membership\Includes\Classes\Person as Person;
-use PJ_EA_Membership\Includes\Classes\Utilities as Utilities;
-use PJ_EA_Membership\Includes\API\EveryAction\People as PeopleAPI;
-use PJ_EA_Membership\Includes\Classes\Source_Code as Source_Code;
+use PJ_Membership_Directory\Includes\Classes\Person as Person;
+use PJ_Membership_Directory\Includes\Classes\Utilities as Utilities;
+use PJ_Membership_Directory\Includes\API\EveryAction\People as PeopleAPI;
+use PJ_Membership_Directory\Includes\Classes\Source_Code as Source_Code;
 
 
 class People
@@ -55,7 +55,7 @@ class People
 
     static function add_shortcodes()
     {
-        add_shortcode(PJ_EA_PREFIX . 'directory', [__CLASS__, 'display_directory_shortcode']);
+        add_shortcode(PJ_MEM_DIR_PREFIX . 'directory', [__CLASS__, 'display_directory_shortcode']);
     }
     static function get_from_params($params)
     {
@@ -119,7 +119,7 @@ class People
     }
     private static function set_statesOrProvinces()
     {
-        $transient_key = PJ_EA_PREFIX . 'states_select';
+        $transient_key = PJ_MEM_DIR_PREFIX . 'states_select';
 
         $data = maybe_unserialize(get_transient($transient_key));
 
@@ -168,7 +168,7 @@ class People
 
         if (!empty($statesOrProvinces)) {
 
-            $output .= '<select id="' . PJ_EA_PREFIX . 'state_select" name="' . PJ_EA_PREFIX . 'state_select">';
+            $output .= '<select id="' . PJ_MEM_DIR_PREFIX . 'state_select" name="' . PJ_MEM_DIR_PREFIX . 'state_select">';
 
             $output .= '<option value="">Select a State or Province</option>';
 
@@ -201,15 +201,15 @@ class People
                 $atts
             )
         );
-        $output .= '<div class="' . PJ_EA_PREFIX . 'directory_wrapper">';
-        $output .= '<div class="' . PJ_EA_PREFIX . 'membership_filters">';
+        $output .= '<div class="' . PJ_MEM_DIR_PREFIX . 'directory_wrapper">';
+        $output .= '<div class="' . PJ_MEM_DIR_PREFIX . 'membership_filters">';
 
         $output .= static::display_stateOrProvince_select($stateOrProvince);
         // $output .= Source_Code::get_codes_select();
 
         $output .= '</div>';
 
-        $output .= '<div id="' . PJ_EA_PREFIX . 'membership_container">';
+        $output .= '<div id="' . PJ_MEM_DIR_PREFIX . 'membership_container">';
 
         $output .= static::display_directory($stateOrProvince);
 
@@ -227,10 +227,10 @@ class People
     {
         return static::get_from_stateAbbreviation($stateOrProvince);
     }
-    static function process_EA_state_filter()
+    static function process_MEM_DIR_state_filter()
     {
 
-        if (isset($_POST['ajax_request']) && $_POST['ajax_request'] === 'true' && isset($_POST['ajax_nonce']) && wp_verify_nonce($_POST['ajax_nonce'], 'pj_ea_ajax_nonce')) {
+        if (isset($_POST['ajax_request']) && $_POST['ajax_request'] === 'true' && isset($_POST['ajax_nonce']) && wp_verify_nonce($_POST['ajax_nonce'], 'pj_MEM_DIR_ajax_nonce')) {
 
             $stateOrProvince = Utilities::filter_post_input('stateOrProvince');
 
@@ -239,10 +239,10 @@ class People
 
         wp_die();
     }
-    static function process_EA_code_filter()
+    static function process_MEM_DIR_code_filter()
     {
 
-        if (isset($_POST['ajax_request']) && $_POST['ajax_request'] === 'true' && isset($_POST['ajax_nonce']) && wp_verify_nonce($_POST['ajax_nonce'], 'pj_ea_ajax_nonce')) {
+        if (isset($_POST['ajax_request']) && $_POST['ajax_request'] === 'true' && isset($_POST['ajax_nonce']) && wp_verify_nonce($_POST['ajax_nonce'], 'pj_MEM_DIR_ajax_nonce')) {
 
             $code = Utilities::filter_post_input('code');
 

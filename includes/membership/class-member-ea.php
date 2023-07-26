@@ -1,14 +1,14 @@
 <?php
 
-namespace PJ_EA_Membership\Includes\Membership;
+namespace PJ_Membership_Directory\Includes\Membership;
 
-require_once PJ_EA_PLUGIN_PATH . 'includes/membership/class-member.php';
+require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/membership/class-member.php';
 
-use PJ_EA_Membership\Includes\Membership\Member as Member;
+use PJ_MEM_DIR_Membership\Includes\Membership\Member as Member;
 
-require_once PJ_EA_PLUGIN_PATH . 'includes/api/everyaction/class-people.php';
+require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/api/everyaction/class-people.php';
 
-use PJ_EA_Membership\Includes\API\EveryAction\People as PeopleAPI;
+use PJ_MEM_DIR_Membership\Includes\API\EveryAction\People as PeopleAPI;
 
 class Member_EA extends Member
 {

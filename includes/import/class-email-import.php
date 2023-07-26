@@ -1,6 +1,6 @@
 <?php
 
-namespace   PJ_EA_Membership\Includes\Import;
+namespace   PJ_Membership_Directory\Includes\Import;
 
 class Email_Import
 {

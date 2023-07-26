@@ -1,10 +1,10 @@
 <?php
 
-namespace   PJ_EA_Membership\Includes\Classes;
+namespace   PJ_Membership_Directory\Includes\Classes;
 
-require_once PJ_EA_PLUGIN_PATH . 'includes/api/everyaction/class-people.php';
+require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/api/everyaction/class-people.php';
 
-use PJ_EA_Membership\Includes\API\EveryAction\People as PeopleAPI;
+use PJ_Membership_Directory\Includes\API\EveryAction\People as PeopleAPI;
 
 class Person
 {
@@ -131,7 +131,7 @@ class Person
     }
     static function add_shortcodes()
     {
-        add_shortcode(PJ_EA_PREFIX . 'person_card', [__CLASS__, 'get_card_from_shortcode']);
+        add_shortcode(PJ_MEM_DIR_PREFIX . 'person_card', [__CLASS__, 'get_card_from_shortcode']);
     }
     private function set_from_ea()
     {

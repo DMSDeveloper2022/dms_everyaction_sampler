@@ -1,6 +1,6 @@
 <?php
 
-namespace PJ_EA_Membership\Includes\API\EveryAction;
+namespace PJ_Membership_Directory\Includes\API\EveryAction;
 
 //class that handles the credentials for the EveryAction API credentials stored in the 2 ACF fields in the EveryAction Settings page, one for the API key and one for the API secret
 class   Credentials
@@ -17,9 +17,9 @@ class   Credentials
 
         if (function_exists('get_field')) {
 
-            $this->environment = get_field('pj_ea_select_environment', 'option');
+            $this->environment = get_field('pj_MEM_DIR_select_environment', 'option');
 
-            $field_name = 'pj_ea_' . $this->environment . '_api';
+            $field_name = 'pj_MEM_DIR_' . $this->environment . '_api';
 
             $this->set_key_values($field_name);
         }

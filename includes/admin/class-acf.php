@@ -1,6 +1,6 @@
 <?php
 
-namespace PJ_EA_Membership\Includes\Admin;
+namespace PJ_Membership_Directory\Includes\Admin;
 
 class ACF
 {

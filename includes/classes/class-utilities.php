@@ -1,6 +1,6 @@
 <?php
 
-namespace PJ_EA_Membership\Includes\Classes;
+namespace PJ_Membership_Directory\Includes\Classes;
 
 class Utilities
 {

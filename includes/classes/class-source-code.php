@@ -1,10 +1,10 @@
 <?php
 
-namespace   PJ_EA_Membership\Includes\Classes;
+namespace   PJ_Membership_Directory\Includes\Classes;
 
-require_once PJ_EA_PLUGIN_PATH . 'includes/api/everyaction/class-api-calls.php';
+require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/api/everyaction/class-api-calls.php';
 
-use PJ_EA_Membership\Includes\API\EveryAction\API_Calls as API_Calls;
+use PJ_Membership_Directory\Includes\API\EveryAction\API_Calls as API_Calls;
 
 class Source_Code
 {
@@ -39,7 +39,7 @@ class Source_Code
 
         if ($codes->count > 0) {
 
-            $output .= '<select name="' . PJ_EA_PREFIX . 'sourceCode_search" id="' . PJ_EA_PREFIX . 'sourceCode_search" class="form-control">';
+            $output .= '<select name="' . PJ_MEM_DIR_PREFIX . 'sourceCode_search" id="' . PJ_MEM_DIR_PREFIX . 'sourceCode_search" class="form-control">';
             $output .= '<option value="">Select a Membership Type</option>';
             foreach ($codes->items as $code) {
 

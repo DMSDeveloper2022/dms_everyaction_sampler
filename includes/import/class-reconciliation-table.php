@@ -1,8 +1,8 @@
 <?php
 
-namespace   PJ_EA_Membership\Includes\Import;
+namespace   PJ_Membership_Directory\Includes\Import;
 
-require_once PJ_EA_PLUGIN_PATH . 'includes/Import/class-sync-table.php';
+require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/Import/class-sync-table.php';
 
 
 class Reconciliation_Table extends Sync_Table

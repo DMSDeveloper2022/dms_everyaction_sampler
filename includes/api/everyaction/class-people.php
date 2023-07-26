@@ -1,10 +1,10 @@
 <?php
 
-namespace PJ_EA_Membership\Includes\API\EveryAction;
+namespace PJ_Membership_Directory\Includes\API\EveryAction;
 
-require_once PJ_EA_PLUGIN_PATH . 'includes/api/everyaction/class-api-calls.php';
+require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/api/everyaction/class-api-calls.php';
 
-use PJ_EA_Membership\Includes\API\EveryAction\API_Calls as API_Calls;
+use PJ_Membership_Directory\Includes\API\EveryAction\API_Calls as API_Calls;
 
 
 class People
@@ -25,7 +25,7 @@ class People
         }
     }
 
-    private function get_person_ea_by_van_id()
+    private function get_person_MEM_DIR_by_van_id()
     {
 
         $person = API_Calls::get(self::ENDPOINT . '/' . $this->vanId, $this->params);
@@ -49,7 +49,7 @@ class People
         $p = new People($vanId, $params);
 
 
-        return $p->get_person_ea_by_van_id();
+        return $p->get_person_MEM_DIR_by_van_id();
     }
     static function get_membership($vanId)
     {

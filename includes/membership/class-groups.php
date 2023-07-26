@@ -1,6 +1,6 @@
 <?php
 
-namespace PJ_EA_Membership\Includes\Membership;
+namespace PJ_Membership_Directory\Includes\Membership;
 
 class Groups
 {
