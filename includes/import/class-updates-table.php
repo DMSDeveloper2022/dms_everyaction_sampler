@@ -1,6 +1,6 @@
 <?php
 
-namespace   PJ_MEM_DIR_Membership\Includes\Import;
+namespace   PJ_Membership_Directory\Includes\Import;
 
 require_once PJ_MEM_DIR_PLUGIN_PATH . 'includes/Import/class-sync-table.php';
 
